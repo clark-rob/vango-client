@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './Header.scss'
 
+// links that appear after successful sign in
 const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
@@ -10,6 +11,7 @@ const authenticatedOptions = (
   </React.Fragment>
 )
 
+// links that do not need authorization
 const unauthenticatedOptions = (
   <React.Fragment>
     <Link to="/sign-up">Sign Up</Link>
@@ -17,19 +19,22 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
+// links that are always showing
 const alwaysOptions = (
   <React.Fragment>
     <Link to="/">Home</Link>
   </React.Fragment>
 )
 
+// header function that creates the front page, it takes in a 'user' parameter
+// to be able to view user name 
 const Header = ({ user }) => (
   <header className="main-header">
     <h1>V.A.N.Go!</h1>
     <nav>
-      { user && <span>Welcome, {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
+      { user && <span>Welcome, {user.email}</span> /* welcome slogan with email */ }
+      { user ? authenticatedOptions : unauthenticatedOptions /* sign in/out swap */}
+      { alwaysOptions /* always shows in the header */}
     </nav>
   </header>
 )

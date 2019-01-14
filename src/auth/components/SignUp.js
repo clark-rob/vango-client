@@ -9,6 +9,7 @@ class SignUp extends Component {
   constructor () {
     super()
 
+    // sets the state of the following to empty
     this.state = {
       email: '',
       password: '',
@@ -16,10 +17,12 @@ class SignUp extends Component {
     }
   }
 
+  // function to handle the form field inputs and change 'this.state' to the values
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
 
+  // signUp function, begins with page reload prevention
   signUp = event => {
     event.preventDefault()
 

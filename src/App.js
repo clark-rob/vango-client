@@ -13,6 +13,7 @@ class App extends Component {
   constructor () {
     super()
 
+    // sets the App's state of user to null & flash message to blank, type to null
     this.state = {
       user: null,
       flashMessage: '',
@@ -20,10 +21,13 @@ class App extends Component {
     }
   }
 
+  // sets user on sign up/in
   setUser = user => this.setState({ user })
 
+  // clears user on sign out, returns user state to null
   clearUser = () => this.setState({ user: null })
 
+  // flash message control
   flash = (message, type) => {
     this.setState({ flashMessage: message, flashType: type })
 
@@ -34,13 +38,14 @@ class App extends Component {
   }
 
   render () {
+    // removes the need to write 'this.state' on the following 
     const { flashMessage, flashType, user } = this.state
 
     return (
       <React.Fragment>
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
-        
+
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp flash={this.flash} setUser={this.setUser} />
