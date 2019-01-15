@@ -8,9 +8,17 @@ export const handleErrors = res => {
   }
 }
 
-export const roundCreate = (number, user) => {
-  console.log(number)
-  console.log(user)
+// export const roundGet = (user) => {
+//   return fetch(apiUrl + '/rounds', {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization':`Token token=${user.token}`
+//     }
+//   })
+// }
+
+export const roundPost = (number, phrase, drawing, user) => {
   return fetch(apiUrl + '/rounds', {
     method: 'POST',
     headers: {
@@ -21,7 +29,7 @@ export const roundCreate = (number, user) => {
       round: {
         number: number,
         phrase: phrase,
-
+        drawing: drawing
       }
     })
   })

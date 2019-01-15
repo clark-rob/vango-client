@@ -10,6 +10,10 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 /* Game Imports */
 import GameCreate from './game/components/GameCreate'
+/* Round Imports */
+import RoundCreate from './round/components/RoundCreate'
+import RoundIndex from './round/components/RoundIndex'
+
 
 class App extends Component {
   constructor () {
@@ -61,9 +65,12 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/games' render={() => (
-            <GameCreate flash={this.flash} user={user} />
+          <AuthenticatedRoute user={user} path='/rounds' render={() => (
+            <RoundCreate flash={this.flash} user={user} />
           )} />
+          {/* <AuthenticatedRoute user={user} path='/rounds' render={() => (
+            <RoundIndex flash={this.flash} user={user} />
+          )} /> */}
         </main>
       </React.Fragment>
     )
