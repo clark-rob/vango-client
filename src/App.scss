@@ -45,4 +45,11 @@ $charcoal: #ccc;
     align-self: flex-end;
     max-width: 200px;
   }
+
+  .drawing-canvas {
+    border: 2px solid;
+    border-color: #fff;
+    height: 200px;
+    width: 500px;
+  }
 }
