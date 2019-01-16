@@ -8,17 +8,18 @@ export const handleErrors = res => {
   }
 }
 
-// export const roundGet = (user) => {
-//   return fetch(apiUrl + '/rounds', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization':`Token token=${user.token}`
-//     }
-//   })
-// }
+export const roundGet = (user) => {
+  return fetch(apiUrl + '/rounds', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${user.token}`
+    }
+  })
+}
 
 export const roundPost = (number, phrase, drawing, user) => {
+  console.log(number)
   return fetch(apiUrl + '/rounds', {
     method: 'POST',
     headers: {

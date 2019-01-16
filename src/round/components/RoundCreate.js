@@ -13,7 +13,7 @@ class RoundCreate extends Component {
     // const { saveData } = this.props
     // sets the state of the round number ot zero, phrase and drawing to empty
     this.state = {
-      number: 0,
+      number: 1,
       phrase: '',
       drawing: ''
     }
@@ -22,7 +22,6 @@ class RoundCreate extends Component {
   // handleChange = event => this.setState(
   //   { [event.target.name]: event.target.value })
 
-  // setItem( 'savedDrawing', this.saveableCanvas.getSaveData() )
 
   createRound = event => {
     // function, begins with page reload prevention

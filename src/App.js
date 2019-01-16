@@ -65,12 +65,12 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/rounds' render={() => (
+          <AuthenticatedRoute user={user} path='/round-create' render={() => (
             <RoundCreate flash={this.flash} user={user} />
           )} />
-          {/* <AuthenticatedRoute user={user} path='/rounds' render={() => (
+          <AuthenticatedRoute user={user} path='/rounds' render={() => (
             <RoundIndex flash={this.flash} user={user} />
-          )} /> */}
+          )} />
         </main>
       </React.Fragment>
     )

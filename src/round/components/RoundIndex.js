@@ -1,42 +1,48 @@
 import React, { Component } from 'react'
+import Round from './Round.js'
 
-import { roundIndex } from '../api'
+import { roundGet } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 
 class RoundIndex extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
-
+      rounds: []
     }
   }
 
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
-
-  roundIndex = event => {
-    event.preventDefault()
-
-    const {  } = this.state
+  componentDidMount() {
     const { flash, history, user } = this.props
-
-    roundGet(this.state, user)
-      .then(handleErrors)
-      .then(() => flash(messages.changePasswordSuccess, 'flash-success'))
-      .then(() => history.push('/'))
-      .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
+    const { rounds } = this.state
+    // console.log(res.data.rounds)
+    roundGet(user)
+      // .then(handleErrors)
+      .then(res => res.json())
+      .then(res => console.log(res.rounds))
+      .then(res => {
+        this.setState({ rounds: res.rounds })
+        return res
+      })
+      .then(console.log(this.state))
+      // .then(() => history.push('/'))
+      // .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
   }
 
   render () {
-    const {  } = this.state
+
+    const Rounds = this.state.rounds.map((data, index) => {
+      return (
+        <Round key={ index } data={ data }/>
+      )
+    })
 
     return (
-      <form className='auth-form'>
-        <h3>Change Password</h3>
-      </form>
+      <div>
+        { Rounds }
+      </div>
     )
   }
 }
