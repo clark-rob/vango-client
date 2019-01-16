@@ -34,8 +34,9 @@ class RoundIndex extends Component {
     //     error
     //   })
     // }
-      .then(() => history.push('/'))
-      .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
+      .then(() => flash(messages.showAllRoundsSuccess, 'flash-success'))
+      // .then(() => history.push('/'))
+      .catch(() => flash(messages.showAllRoundsFailure, 'flash-error'))
   }
 
   render () {
