@@ -18,8 +18,8 @@ export const roundGet = (user) => {
   })
 }
 
-export const roundPost = (number, phrase, drawing, user) => {
-  console.log(number)
+export const roundPost = ({ number, phrase, drawing}, user ) => {
+  // console.log(number, phrase, drawing, user)
   return fetch(apiUrl + '/rounds', {
     method: 'POST',
     headers: {
