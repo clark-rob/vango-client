@@ -10,6 +10,7 @@ class RoundIndex extends Component {
     super(props)
 
     this.state = {
+      error: null,
       rounds: []
     }
   }
@@ -17,25 +18,31 @@ class RoundIndex extends Component {
   componentDidMount() {
     const { flash, history, user } = this.props
     const { rounds } = this.state
-    // console.log(res.data.rounds)
+
     roundGet(user)
       // .then(handleErrors)
       .then(res => res.json())
-      .then(res => console.log(res.rounds))
-      .then(res => {
-        this.setState({ rounds: res.rounds })
-        return res
-      })
-      .then(console.log(this.state))
-      // .then(() => history.push('/'))
-      // .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
+      // .then(res => console.log(res.rounds))
+      .then(
+        (result) => {
+          this.setState({
+            rounds: result.rounds
+          })
+        })
+    // (error) => {
+    //   this.setState({
+    //     error
+    //   })
+    // }
+      .then(() => history.push('/'))
+      .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
   }
 
   render () {
-
-    const Rounds = this.state.rounds.map((data, index) => {
+    // console.log(this.state.rounds)
+    const Rounds = this.state.rounds.map((data, _id) => {
       return (
-        <Round key={ index } data={ data }/>
+        <Round key={ _id } data={data}/>
       )
     })
 
