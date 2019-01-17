@@ -6,8 +6,11 @@ import './Header.scss'
 // links that appear after successful sign in
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/round-create">Create Round</Link>
-    <Link to="/rounds">Show Rounds</Link>
+    {/*--------------Round Links---------------*/}
+    <Link to="/round-create">Create Art</Link>
+    <Link to="/rounds">Show Drawings</Link>
+    <Link to="/round-update">Update Drawing</Link>
+    {/*-----------Authorization Links------------*/}
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
   </React.Fragment>

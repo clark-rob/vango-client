@@ -19,9 +19,18 @@ class RoundCreate extends Component {
     }
   }
 
+  clearForm = () => {
+    this.setState(prevState => {
+      const nextState = {}
+      for(const key in prevState) {
+        nextState[key] = ''
+      }
+    })
+  }
   // handleChange = event => this.setState(
   //   { [event.target.name]: event.target.value })
-
+  // const data =  { ...this.state }
+  // '...' takes all the new data of 'this.state' and puts it in the new set array 'data'
 
   createRound = event => {
     // function, begins with page reload prevention
@@ -33,10 +42,12 @@ class RoundCreate extends Component {
     // function to plus one to the this.state.number on each click
     this.setState({ number: number + 1, drawing: saved },
       () => {
-        // console.log(this.state)
-        roundPost(this.state, user)
+        const data = { ...this.state }
+        // console.log(data)
+        roundPost(data, user)
           .then(() => flash(messages.createSuccess, 'flash-success'))
-          // .then(this.saveableCanvas.clear())
+          .then(this.saveableCanvas.clear())
+          .then(this.clearForm)
           .catch(() => flash(messages.createFailure, 'flash-error'))
       })
 
