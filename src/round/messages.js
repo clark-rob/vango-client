@@ -4,5 +4,6 @@ export default {
   deleteSuccess: 'Your Happy Mistake has been Deleted',
   deleteFailure: 'Your Art is Rebellious',
   showAllRoundsSuccess: 'Here are your masterpieces!',
-  showAllRoundsFailure: 'Failed to retrieve all drawings.'
+  showAllRoundsFailure: 'Failed to retrieve all drawings.',
+  noRoundToShow: 'You Need To Get Started On Some Drawings!'
 }

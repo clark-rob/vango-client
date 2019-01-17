@@ -19,29 +19,13 @@ class RoundUpdate extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props)
-    const firstRound = this.props.rounds[0]._id
-    this.changeRoundData(firstRound)
-    // const { flash, user } = this.props
-    // const { rounds } = this.state
-    // const data = this.props.match.params.id
-    // console.log(data)
-    // oneRoundGet(data, user)
-    // // console.log(event.target._id)
-    //   // .then(handleErrors)
-    //   .then(res => res.json())
-    //   // .then(res => console.log(res.rounds))
-    //   .then(
-    //     (result) => {
-    //       this.setState({
-    //         number: result.rounds.number,
-    //         phrase: result.rounds.phrase,
-    //         drawing: result.rounds.drawing
-    //       })
-    //     })
-    //   .then(() => flash(messages.showAllRoundsSuccess, 'flash-success'))
-    //   // .then(() => history.push('/'))
-    //   .catch(() => flash(messages.showAllRoundsFailure, 'flash-error'))
+    console.log(this.props)
+    if (this.props.rounds.length === 0) {
+      this.props.flash(messages.noRoundToShow, 'flash-warning')
+    } else {
+      const firstRound = this.props.rounds[0]._id
+      this.changeRoundData(firstRound)
+    }
   }
 
   changeRoundData = _id => {
@@ -81,7 +65,6 @@ class RoundUpdate extends Component {
     this.setState({ number: number + 1, drawing: saved },
       () => {
         const data = { ...this.state }
-        // console.log(data)
         roundPatch(data, user)
           .then(() => flash(messages.createSuccess, 'flash-success'))
           .then(this.saveableCanvas.clear()) .then(this.clearForm)
@@ -93,7 +76,6 @@ class RoundUpdate extends Component {
 
   render () {
     const { number, phrase, drawing } = this.state
-    // console.log(this.props.rounds)
     const SelectOptions = this.props.rounds.map((round, index) => {
       // console.log(round.drawing)
       return (<option key={ index } value={ round._id }>{ round.phrase } (ID: { round._id })</option>)
@@ -121,24 +103,18 @@ class RoundUpdate extends Component {
           name="drawing"
           saveData={ drawing }
           onChange={ this.onPhraseUpdate }
-        />
+        />*/}
 
         <CanvasDraw
           required
           name="drawing"
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
-          // saveData={ drawing }
+          saveData={ drawing }
+          immediateLoading={ true }
           onChange={ this.onPhraseUpdate }
-        />*/}
-        <input
-          required
-          type="string"
-          name="drawing"
-          value={drawing}
-          placeholder='Your drawing'
-          onChange={this.onPhraseUpdate}
         />
+
         <button type="submit">Update</button>
       </form>
     )

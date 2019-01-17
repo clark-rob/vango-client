@@ -96,19 +96,20 @@ class App extends Component {
               user={user} />
           )} />
           {/*--------------Rounds Routes---------------*/}
-          <AuthenticatedRoute user={user} path='/round-create' render={() => (
+          <AuthenticatedRoute user={user} exact path='/round-create' render={() => (
             <RoundCreate
+              getAllRounds={this.getAllRounds}
               flash={this.flash}
               user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/rounds' render={() => (
+          <AuthenticatedRoute user={user} exact path='/rounds' render={() => (
             <RoundIndex
               getAllRounds={this.getAllRounds}
               rounds={this.state.rounds}
               flash={this.flash}
               user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/round-update' render={() => (
+          <AuthenticatedRoute user={user} exact path='/round-update' render={() => (
             <RoundUpdate
               rounds={this.state.rounds}
               getAllRounds={this.getAllRounds}
