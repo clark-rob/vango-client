@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://vango-server.herokuapp.com/',
+  production: 'https://vango-server.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
