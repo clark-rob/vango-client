@@ -19,7 +19,7 @@ class RoundUpdate extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
     const firstRound = this.props.rounds[0]._id
     this.changeRoundData(firstRound)
     // const { flash, user } = this.props
@@ -93,10 +93,13 @@ class RoundUpdate extends Component {
 
   render () {
     const { number, phrase, drawing } = this.state
-    // console.log(this.props.user)
+    // console.log(this.props.rounds)
     const SelectOptions = this.props.rounds.map((round, index) => {
+      // console.log(round.drawing)
       return (<option key={ index } value={ round._id }>{ round.phrase } (ID: { round._id })</option>)
-    })
+    } ,
+    // console.log(this.props.round._id)
+    )
     return (
       <form className='round-update' onSubmit={this.updateRound}>
         <select
@@ -114,11 +117,27 @@ class RoundUpdate extends Component {
           onChange={this.onPhraseUpdate}
         />
 
+        {/*<CanvasDraw
+          name="drawing"
+          saveData={ drawing }
+          onChange={ this.onPhraseUpdate }
+        />
+
         <CanvasDraw
           required
           name="drawing"
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
+          // saveData={ drawing }
+          onChange={ this.onPhraseUpdate }
+        />*/}
+        <input
+          required
+          type="string"
+          name="drawing"
+          value={drawing}
+          placeholder='Your drawing'
+          onChange={this.onPhraseUpdate}
         />
         <button type="submit">Update</button>
       </form>

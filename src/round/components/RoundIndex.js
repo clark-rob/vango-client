@@ -59,9 +59,9 @@ import { roundDelete } from '../api'
 const RoundIndex = props => {
 
   const Rounds = props.rounds.map((round, index) => {
-    // console.log(round._id)
+    // console.log(round)
     const deleteRound = () => {
-      console.log(round.owner, props.user._id)
+      // console.log(round, props.user._id)
       roundDelete(round, props.user)
         .then(props.getAllRounds)
     }

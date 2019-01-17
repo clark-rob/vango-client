@@ -98,7 +98,6 @@ class App extends Component {
           {/*--------------Rounds Routes---------------*/}
           <AuthenticatedRoute user={user} path='/round-create' render={() => (
             <RoundCreate
-              getAllRounds={this.getAllRounds}
               flash={this.flash}
               user={user} />
           )} />

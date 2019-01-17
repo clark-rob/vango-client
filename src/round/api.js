@@ -63,7 +63,7 @@ export const roundPatch = (data, user ) => {
 }
 /*---------------Delete One Round----------------*/
 export const roundDelete = (round, user) => {
-  console.log(round, user)
+  // console.log(round, user)
   return fetch(apiUrl + '/rounds/' + round._id, {
     method: 'DELETE',
     headers: {
