@@ -32,20 +32,15 @@ class App extends Component {
   /*---------------Round Index Action-------------------*/
   getAllRounds = () => {
     roundGet(this.state.user)
-      // .then(res => res.ok ? res : new Error())
+      .then(res => res.ok ? res : new Error())
       .then(res => res.json())
-      // .then(res => console.log(res.rounds))
       .then(
         res =>
           this.setState({
             rounds: res.rounds
           })
       )
-      // .then(console.log(this.state.rounds))
-      .then(() => this.flash(messages.showAllRoundsSuccess, 'flash-success'))
-      // .then(() => history.push('/'))
       .catch(() => this.flash(messages.showAllRoundsFailure, 'flash-error'))
-    // console.log(res)
   }
 
   // sets user on sign up/in
@@ -61,7 +56,7 @@ class App extends Component {
     clearTimeout(this.messageTimeout)
 
     this.messageTimeout = setTimeout(() => this.setState({flashMessage: null
-    }), 2000)
+    }), 4000)
   }
 
   render () {

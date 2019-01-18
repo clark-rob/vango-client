@@ -38,7 +38,6 @@ class RoundCreate extends Component {
     this.setState({ number: number + 1, drawing: saved },
       () => {
         const data = { ...this.state }
-        console.log(this.props)
         roundPost(data, user)
           .then(() => flash(messages.createSuccess, 'flash-success'))
           .then(this.saveableCanvas.clear())

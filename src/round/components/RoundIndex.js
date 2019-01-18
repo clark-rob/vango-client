@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import CanvasDraw from 'react-canvas-draw'
+
 import { roundDelete } from '../api'
 import { Link } from 'react-router-dom'
-
-// import { roundGet } from '../api'
-// import messages from '../messages'
-// import apiUrl from '../../apiConfig'
+import messages from '../messages'
+import CanvasDraw from 'react-canvas-draw'
 
 const RoundIndex = props => {
 
@@ -13,6 +11,8 @@ const RoundIndex = props => {
     const deleteRound = () => {
       roundDelete(round, props.user)
         .then(props.getAllRounds)
+        .then(() => props.flash(messages.deleteSuccess, 'flash-success'))
+        .catch(() => props.flash(messages.deleteFailure, 'flash-error'))
     }
     return (
       <div key={ round._id }>

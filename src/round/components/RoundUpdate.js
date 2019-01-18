@@ -19,7 +19,6 @@ class RoundUpdate extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     if (this.props.rounds.length === 0) {
       this.props.flash(messages.noRoundToShow, 'flash-warning')
     } else {
@@ -37,6 +36,7 @@ class RoundUpdate extends Component {
       _id: round._id
     })
   }
+
   onPhraseUpdate = event => {
     const { name, value } = event.target
     if (name === 'id') {
@@ -46,14 +46,6 @@ class RoundUpdate extends Component {
     }
   }
 
-  clearForm = () => {
-    this.setState(prevState => {
-      const nextState = {}
-      for(const key in prevState) {
-        nextState[key] = ''
-      }
-    })
-  }
   updateRound = event => {
     // function, begins with page reload prevention
     event.preventDefault()
@@ -66,21 +58,17 @@ class RoundUpdate extends Component {
       () => {
         const data = { ...this.state }
         roundPatch(data, user)
-          .then(() => flash(messages.createSuccess, 'flash-success'))
-          .then(this.saveableCanvas.clear()) .then(this.clearForm)
+          .then(() => flash(messages.updateSuccess, 'flash-success'))
           .then(this.props.getAllRounds)
-          .catch(() => flash(messages.createFailure, 'flash-error'))
+          .catch(() => flash(messages.updateFailure, 'flash-error'))
       })
   }
-
 
   render () {
     const { number, phrase, drawing } = this.state
     const SelectOptions = this.props.rounds.map((round, index) => {
-      // console.log(round.drawing)
       return (<option key={ index } value={ round._id }>{ round.phrase } (ID: { round._id })</option>)
     } ,
-    // console.log(this.props.round._id)
     )
     return (
       <form className='round-update' onSubmit={this.updateRound}>
@@ -98,12 +86,6 @@ class RoundUpdate extends Component {
           placeholder='Your Word'
           onChange={this.onPhraseUpdate}
         />
-
-        {/*<CanvasDraw
-          name="drawing"
-          saveData={ drawing }
-          onChange={ this.onPhraseUpdate }
-        />*/}
 
         <CanvasDraw
           required

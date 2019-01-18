@@ -19,7 +19,6 @@ export const roundGet = (user) => {
 }
 /*---------------Create Round----------------*/
 export const roundPost = ( data, user ) => {
-  console.log(data)
   return fetch(apiUrl + '/rounds', {
     method: 'POST',
     headers: {
@@ -33,7 +32,6 @@ export const roundPost = ( data, user ) => {
 }
 /*---------------Update Round----------------*/
 export const roundPatch = (data, user ) => {
-  console.log(data, user)
   const { _id } = data
   delete data.id
   return fetch(apiUrl + '/rounds/' + _id, {

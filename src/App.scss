@@ -14,7 +14,7 @@ $charcoal: #ccc;
   text-align: center;
   top: 15%;
   width: 50%;
-  z-index: 1;
+  z-index: 16;
 }
 
 .flash-success {
@@ -44,12 +44,5 @@ $charcoal: #ccc;
   button {
     align-self: flex-end;
     max-width: 200px;
-  }
-
-  .drawing-canvas {
-    border: 2px solid;
-    border-color: #fff;
-    height: 200px;
-    width: 500px;
   }
 }

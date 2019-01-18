@@ -9,7 +9,6 @@ const authenticatedOptions = (
     {/*--------------Round Links---------------*/}
     <Link to="/round-create">Create Art</Link>
     <Link to="/rounds">Show Drawings</Link>
-    <Link to="/round-update">Update Drawing</Link>
     {/*-----------Authorization Links------------*/}
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
