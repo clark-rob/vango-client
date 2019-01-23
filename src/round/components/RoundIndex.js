@@ -15,7 +15,7 @@ const RoundIndex = props => {
         .catch(() => props.flash(messages.deleteFailure, 'flash-error'))
     }
     return (
-      <div key={ round._id }>
+      <div className="each-round" key={ round._id }>
         <h3><b>Phrase</b>: { round.phrase}</h3>
         <h5><b>Drawing</b>:</h5><CanvasDraw disabled saveData={ round.drawing } immediateLoading={ true }/>
         <div className="row">
