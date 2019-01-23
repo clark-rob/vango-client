@@ -9,10 +9,14 @@ const RoundIndex = props => {
 
   const Rounds = props.rounds.map((round, index) => {
     const deleteRound = () => {
-      roundDelete(round, props.user)
-        .then(props.getAllRounds)
-        .then(() => props.flash(messages.deleteSuccess, 'flash-success'))
-        .catch(() => props.flash(messages.deleteFailure, 'flash-error'))
+      if(round.owner === props.user._id) {
+        roundDelete(round, props.user)
+          .then(props.getAllRounds)
+          .then(() => props.flash(messages.deleteSuccess, 'flash-success'))
+          .catch(() => props.flash(messages.deleteFailure, 'flash-error'))
+      } else {
+        props.flash(messages.userFailure, 'flash-error')
+      }
     }
     return (
       <div className="each-round" key={ round._id }>
@@ -21,6 +25,7 @@ const RoundIndex = props => {
         <CanvasDraw
           catenaryColor="#fff"
           brushRadius= { 0 }
+          canvasWidth={ 375 }
           disabled={ true }
           hideGrid={ true }
           lazyRadius={ 0 }

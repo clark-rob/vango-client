@@ -60,6 +60,8 @@ class RoundCreate extends Component {
           value={phrase}
           placeholder='Your Word'
           onChange={this.onPhraseChange}
+          brushRadius= { 8 }
+          canvasWidth={ 375 }
         />
         <CanvasDraw
           required
