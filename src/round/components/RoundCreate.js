@@ -67,7 +67,7 @@ class RoundCreate extends Component {
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
         />
-        <button type="submit">Create</button>
+        <input type="submit" className="btn btn-success" value="Create"/>
       </form>
     )
   }

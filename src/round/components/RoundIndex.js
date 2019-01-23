@@ -17,7 +17,16 @@ const RoundIndex = props => {
     return (
       <div className="each-round" key={ round._id }>
         <h3><b>Phrase</b>: { round.phrase}</h3>
-        <h5><b>Drawing</b>:</h5><CanvasDraw disabled saveData={ round.drawing } immediateLoading={ true }/>
+        <h5><b>Drawing</b>:</h5>
+        <CanvasDraw
+          catenaryColor="#fff"
+          brushRadius= { 0 }
+          disabled={ true }
+          hideGrid={ true }
+          lazyRadius={ 0 }
+          saveData={ round.drawing }
+          immediateLoading={ true }
+        />
         <div className="row">
           <Link to="/round-update" className="btn btn-warning mx-3">
             Update

@@ -68,10 +68,9 @@ html {
 }
 
 .round-create {
-  display: flex;
-  flex-direction: column;
+  display: block;
   justify-content: center;
-  margin: auto;
-  padding: 30px;
-  width: 350px;
+  margin: 0 auto;
+  padding-top: 30px;
+  width: 375px;
 }
