@@ -8,10 +8,6 @@ $charcoal: #bbb;
   height: 100px;
   padding: 0 20px;
 
-  h1 {
-    font-size: 60px;
-  }
-
   a,
   span {
     font-size: 1.2em;
@@ -26,7 +22,13 @@ $charcoal: #bbb;
   justify-content: flex-end;
 }
 
-@media (max-width: 600px) {
+.title-header {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 800px) {
   .main-header {
     flex-direction: column;
     font-size: 0.7em;
@@ -39,14 +41,12 @@ $charcoal: #bbb;
   }
 }
 
-@media (max-width: 450px) {
-  .main-header > nav {
+@media (max-width: 500px) {
+  .nav-header {
     flex-direction: column;
     width: 100%;
 
-    a,
-    span {
-      border: 1px solid $charcoal;
+    a {
       margin-bottom: 5px;
       text-align: center;
       width: 80%;

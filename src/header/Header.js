@@ -34,8 +34,10 @@ const alwaysOptions = (
 // to be able to view user name
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>{ alwaysOptions /* always shows in the header */}</h1>
-    <h4>{ user && <span>Welcome, {user.email}</span> /* if there is a user, show w/ welcome slogan w/ user's email */ }</h4>
+    <div className="title-header">
+      <h1>{ alwaysOptions /* always shows in the header */}</h1>
+      <h6>{ user && <span>Welcome, {user.email}</span> /* if there is a user, show w/ welcome slogan w/ user's email */ }</h6>
+    </div>
     <nav>
       { user ? authenticatedOptions : unauthenticatedOptions /* sign in/out swap */}
     </nav>
