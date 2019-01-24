@@ -31,12 +31,13 @@ class App extends Component {
   }
   /*---------------Round Index Action-------------------*/
   getAllRounds = () => {
+    // makes a call to the api to GET all 'rounds' once user is signed in
     roundGet(this.state.user)
-      .then(res => res.ok ? res : new Error())
-      .then(res => res.json())
+      .then(res => res.ok ? res : new Error()) // if user, retrieve data, if not, throw error
+      .then(res => res.json()) // render data into json
       .then(
         res =>
-          this.setState({
+          this.setState({ // set state to retrieved 'rounds'
             rounds: res.rounds
           })
       )

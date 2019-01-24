@@ -62,7 +62,6 @@ class RoundUpdate extends Component {
       () => {
         // this.state is set to a variable of data
         const data = { ...this.state }
-        console.log(round.owner)
         if (round.owner === user._id) {
           roundPatch(data, user)
             .then(() => flash(messages.updateSuccess, 'flash-success'))

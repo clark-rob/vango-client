@@ -5,6 +5,11 @@ $charcoal: #ccc;
 
 header {
   background-color: #ccccc8;
+  font-family: 'Finger Paint', cursive;
+
+  h1 {
+    font-size: 60px;
+  }
 }
 
 html {
@@ -13,6 +18,7 @@ html {
 
 #root {
   background-color: #f0e32b;
+  font-family: 'Finger Paint', cursive;
 }
 
 .auth-form {
@@ -33,12 +39,33 @@ html {
   }
 }
 
+.btn {
+  font-family: 'Finger Paint', cursive;
+}
+
 .container {
   background-color: #f0e32b;
 }
 
 .each-round {
   background-color: #ccccc8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0;
+  width: 375px;
+
+  h3,
+  h5 {
+    padding-left: 10px;
+  }
+
+  .update-button,
+  .delete-button {
+    margin: 10px;
+  }
 }
 
 .flash-success,
@@ -70,7 +97,13 @@ html {
 .round-create {
   display: block;
   justify-content: center;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 30px;
   width: 375px;
+
+  .create-button,
+  .phrase-input {
+    margin: 10px;
+  }
 }

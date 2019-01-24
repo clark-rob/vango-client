@@ -6,6 +6,7 @@ import messages from '../messages'
 import CanvasDraw from 'react-canvas-draw'
 
 const RoundIndex = props => {
+  console.log(CanvasDraw.drawImage)
 
   const Rounds = props.rounds.map((round, index) => {
     const deleteRound = () => {
@@ -32,11 +33,11 @@ const RoundIndex = props => {
           saveData={ round.drawing }
           immediateLoading={ true }
         />
-        <div className="row">
-          <Link to="/round-update" className="btn btn-warning mx-3">
+        <div className="button-row">
+          <Link to="/round-update" className="update-button btn btn-warning">
             Update
           </Link>
-          <button onClick={ deleteRound } type="submit" className="btn btn-danger">
+          <button onClick={ deleteRound } type="submit" className="delete-button btn btn-danger">
           Delete
           </button>
         </div>
