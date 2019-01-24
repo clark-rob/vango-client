@@ -50,7 +50,7 @@ class RoundCreate extends Component {
           type="string"
           name="phrase"
           value={phrase}
-          placeholder='Your Word'
+          placeholder='Your Verb, Adjective and Noun'
           onChange={this.onPhraseChange}
         />
         <CanvasDraw

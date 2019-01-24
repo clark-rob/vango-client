@@ -3,15 +3,6 @@ $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
 
-header {
-  background-color: #ccccc8;
-  font-family: 'Finger Paint', cursive;
-
-  h1 {
-    font-size: 60px;
-  }
-}
-
 html {
   background-color: #f0e32b;
 }
@@ -94,6 +85,21 @@ html {
   background-color: $error;
 }
 
+.home-screen {
+  margin: auto;
+  padding-top: 50px;
+  text-align: center;
+
+  b {
+    color: #1a5bff;
+  }
+
+  .vango-title {
+    color: #1a5bff;
+    font-size: 60px;
+  }
+}
+
 .round-create {
   display: block;
   justify-content: center;
@@ -102,8 +108,12 @@ html {
   padding-top: 30px;
   width: 375px;
 
-  .create-button,
+  .create-button {
+    margin: 10px;
+  }
+
   .phrase-input {
     margin: 10px;
+    width: 350px;
   }
 }
