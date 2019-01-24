@@ -31,12 +31,13 @@ class App extends Component {
   }
   /*---------------Round Index Action-------------------*/
   getAllRounds = () => {
+    // makes a call to the api to GET all 'rounds' once user is signed in
     roundGet(this.state.user)
-      .then(res => res.ok ? res : new Error())
-      .then(res => res.json())
+      .then(res => res.ok ? res : new Error()) // if user, retrieve data, if not, throw error
+      .then(res => res.json()) // render data into json
       .then(
         res =>
-          this.setState({
+          this.setState({ // set state to retrieved 'rounds'
             rounds: res.rounds
           })
       )
@@ -68,6 +69,14 @@ class App extends Component {
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <div className="home-screen">
+              <h1>Welcome to <span className="vango-title">V.A.N.Go!</span></h1>
+              <h3>The Drawing Application</h3>
+              <hr/>
+              <p>Just sign up above and you will be on your way to creativity! All you need to do is think of a <b>verb</b>, an <b>adjective</b> and a <b>noun</b>, then DRAW!</p>
+            </div>
+          )} />
           {/*--------------Authorization Routes---------------*/}
           <Route path='/sign-up' render={() => (
             <SignUp

@@ -18,22 +18,13 @@ class RoundCreate extends Component {
     }
   }
 
-  clearForm = () => {
-    this.setState(prevState => {
-      const nextState = {}
-      for(const key in prevState) {
-        nextState[key] = ''
-      }
-    })
-  }
-
   createRound = event => {
     // function, begins with page reload prevention
     event.preventDefault()
     const { number, phrase, drawing } = this.state
     const { flash, user, getAllRounds } = this.props
     const saved = this.saveableCanvas.getSaveData()
-
+    console.log(this.saveableCanvas.drawImage)
     // function to plus one to the this.state.number on each click
     this.setState({ number: number + 1, drawing: saved },
       () => {
@@ -55,10 +46,11 @@ class RoundCreate extends Component {
       <form className='round-create' onSubmit={this.createRound}>
         <input
           required
+          className="phrase-input"
           type="string"
           name="phrase"
           value={phrase}
-          placeholder='Your Word'
+          placeholder='Your Verb, Adjective and Noun'
           onChange={this.onPhraseChange}
         />
         <CanvasDraw
@@ -66,8 +58,10 @@ class RoundCreate extends Component {
           name="drawing"
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
+          brushRadius= { 8 }
+          canvasWidth={ 375 }
         />
-        <button type="submit">Create</button>
+        <input type="submit" className="create-button btn btn-success" value="Create"/>
       </form>
     )
   }
