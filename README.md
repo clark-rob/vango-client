@@ -2,6 +2,7 @@
 - The Drawing App for All Ages
 
 # Snapshot of App
+![alt screenshot](./public/vango-screenshot.png)
 
 ## Description
 - User can sign up and sign in using email and password

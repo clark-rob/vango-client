@@ -24,7 +24,6 @@ class RoundCreate extends Component {
     const { number, phrase, drawing } = this.state
     const { flash, user, getAllRounds } = this.props
     const saved = this.saveableCanvas.getSaveData()
-    console.log(this.saveableCanvas.drawImage)
     // function to plus one to the this.state.number on each click
     this.setState({ number: number + 1, drawing: saved },
       () => {
@@ -59,6 +58,7 @@ class RoundCreate extends Component {
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
           brushRadius= { 8 }
+          canvasHeight={ 400 }
           canvasWidth={ 375 }
         />
         <input type="submit" className="create-button btn btn-success" value="Create"/>

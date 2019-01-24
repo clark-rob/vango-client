@@ -6,11 +6,12 @@ import messages from '../messages'
 import CanvasDraw from 'react-canvas-draw'
 
 const RoundIndex = props => {
-  console.log(CanvasDraw.drawImage)
 
   const Rounds = props.rounds.map((round, index) => {
+    // ---------------Delete function ---------------------
     const deleteRound = () => {
       if(round.owner === props.user._id) {
+        // only deletes round if the owner matches the user id
         roundDelete(round, props.user)
           .then(props.getAllRounds)
           .then(() => props.flash(messages.deleteSuccess, 'flash-success'))
@@ -19,20 +20,23 @@ const RoundIndex = props => {
         props.flash(messages.userFailure, 'flash-error')
       }
     }
+
+
     return (
       <div className="each-round" key={ round._id }>
         <h3><b>Phrase</b>: { round.phrase}</h3>
         <h5><b>Drawing</b>:</h5>
-        <CanvasDraw
+        { round.drawing && <CanvasDraw
           catenaryColor="#fff"
           brushRadius= { 0 }
+          canvasHeight={ 400 }
           canvasWidth={ 375 }
           disabled={ true }
           hideGrid={ true }
           lazyRadius={ 0 }
-          saveData={ round.drawing }
+          saveData={ round.drawing || '' }
           immediateLoading={ true }
-        />
+        /> }
         <div className="button-row">
           <Link to="/round-update" className="update-button btn btn-warning">
             Update
@@ -44,10 +48,10 @@ const RoundIndex = props => {
       </div>
     )
   })
-
+  
   return (
     <div>
-      { Rounds }
+      { Rounds && Rounds }
     </div>
   )
 }

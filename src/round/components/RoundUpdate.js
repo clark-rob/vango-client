@@ -56,6 +56,7 @@ class RoundUpdate extends Component {
     const { flash, user, rounds } = this.props
     // the canvas drawing is set to a variable of 'saved'
     const saved = this.saveableCanvas.getSaveData()
+    // 'round' variable contains individual 'round' owner
     const round = this.props.rounds.find(round => round.owner)
     // function to plus one to the this.state.number on each click
     this.setState({ number: number + 1, drawing: saved },
@@ -104,6 +105,7 @@ class RoundUpdate extends Component {
           saveData={ drawing }
           immediateLoading={ true }
           brushRadius= { 8 }
+          cavasHeight={ 400 }
           canvasWidth={ 375 }
           onChange={ this.onPhraseUpdate }
         />
