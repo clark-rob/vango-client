@@ -31,6 +31,7 @@ class RoundCreate extends Component {
         roundPost(data, user)
           .then(() => flash(messages.createSuccess, 'flash-success'))
           .then(this.saveableCanvas.clear())
+          .then(this.setState({ phrase: '' }))
           .then(getAllRounds)
           .catch(() => flash(messages.createFailure, 'flash-error'))
       })
