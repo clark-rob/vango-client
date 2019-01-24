@@ -26,7 +26,7 @@ const unauthenticatedOptions = (
 // links that are always showing
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    <Link to="/">V.A.N.Go!</Link>
   </React.Fragment>
 )
 
@@ -34,11 +34,10 @@ const alwaysOptions = (
 // to be able to view user name
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>V.A.N.Go!</h1>
+    <h1>{ alwaysOptions /* always shows in the header */}</h1>
+    <h4>{ user && <span>Welcome, {user.email}</span> /* if there is a user, show w/ welcome slogan w/ user's email */ }</h4>
     <nav>
-      { user && <span>Welcome, {user.email}</span> /* if there is a user, show w/ welcome slogan w/ user's email */ }
       { user ? authenticatedOptions : unauthenticatedOptions /* sign in/out swap */}
-      { alwaysOptions /* always shows in the header */}
     </nav>
   </header>
 )

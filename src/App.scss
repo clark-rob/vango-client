@@ -2,6 +2,7 @@ $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+$title-color: #4d8a13;
 
 html {
   background-color: #f0e32b;
@@ -91,11 +92,11 @@ html {
   text-align: center;
 
   b {
-    color: #1a5bff;
+    color: $title-color;
   }
 
   .vango-title {
-    color: #1a5bff;
+    color: $title-color;
     font-size: 60px;
   }
 }
