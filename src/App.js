@@ -74,7 +74,8 @@ class App extends Component {
               <h1>Welcome to <span className="vango-title">V.A.N.Go!</span></h1>
               <h3>The Drawing Application</h3>
               <hr/>
-              <p>Just sign up above and you will be on your way to creativity! All you need to do is think of a <b>verb</b>, an <b>adjective</b> and a <b>noun</b>, then DRAW!</p>
+              <p>Just sign up above* and you will be on your way to creativity! Then click Create Art and insert your phrase formed of a <b>verb</b>, an <b>adjective</b> and a <b>noun</b>, then get to DRAWING!</p><br/>
+              <p>(PLEASE DO NOT use an actual email and password as this site is just a dream. Thank You and enjoy!)</p>
             </div>
           )} />
           {/*--------------Authorization Routes---------------*/}

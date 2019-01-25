@@ -24,14 +24,18 @@ class RoundCreate extends Component {
     const { number, phrase, drawing } = this.state
     const { flash, user, getAllRounds } = this.props
     const saved = this.saveableCanvas.getSaveData()
-    console.log(this.saveableCanvas.drawImage)
-    // function to plus one to the this.state.number on each click
+    // each setState adds one to the state.number, state.drawing will become 'saved' canvas array
     this.setState({ number: number + 1, drawing: saved },
       () => {
         const data = { ...this.state }
+        // api call to create specified 'round'
         roundPost(data, user)
           .then(() => flash(messages.createSuccess, 'flash-success'))
+          // canvas clears after form submit
           .then(this.saveableCanvas.clear())
+          // phrase input clears on submit
+          .then(this.setState({ phrase: '' }))
+          // api call to GET all rounds
           .then(getAllRounds)
           .catch(() => flash(messages.createFailure, 'flash-error'))
       })
@@ -59,6 +63,7 @@ class RoundCreate extends Component {
           value={drawing}
           ref={ canvasDraw => (this.saveableCanvas = canvasDraw)}
           brushRadius= { 8 }
+          canvasHeight={ 400 }
           canvasWidth={ 375 }
         />
         <input type="submit" className="create-button btn btn-success" value="Create"/>
