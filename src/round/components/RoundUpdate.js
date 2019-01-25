@@ -63,9 +63,12 @@ class RoundUpdate extends Component {
       () => {
         // this.state is set to a variable of data
         const data = { ...this.state }
+        // allow update only if the round owner matches the current user id
         if (round.owner === user._id) {
+          // api call to PATCH
           roundPatch(data, user)
             .then(() => flash(messages.updateSuccess, 'flash-success'))
+            // api call to GET all rounds
             .then(this.props.getAllRounds)
             .catch(() => flash(messages.updateFailure, 'flash-error'))
         } else {

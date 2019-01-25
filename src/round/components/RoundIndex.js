@@ -5,56 +5,73 @@ import { Link } from 'react-router-dom'
 import messages from '../messages'
 import CanvasDraw from 'react-canvas-draw'
 
-const RoundIndex = props => {
+class RoundIndex extends Component {
+  constructor (props) {
+    super(props)
 
-  const Rounds = props.rounds.map((round, index) => {
-    // ---------------Delete function ---------------------
-    const deleteRound = () => {
-      if(round.owner === props.user._id) {
-        // only deletes round if the owner matches the user id
-        roundDelete(round, props.user)
-          .then(props.getAllRounds)
-          .then(() => props.flash(messages.deleteSuccess, 'flash-success'))
-          .catch(() => props.flash(messages.deleteFailure, 'flash-error'))
-      } else {
-        props.flash(messages.userFailure, 'flash-error')
-      }
+    this.state = {
     }
+    Rounds: []
+  }
+
+  componentDidMount() {
+    const { rounds, user, getAllRounds, flash } = this.props
+    const Rounds = rounds.map((round, index) => {
+      // function 'Rounds' takes in the 'props.rounds' and loops through each available 'round'
+      // ---------------Delete function ---------------------
+      const deleteRound = () => {
+        if(round.owner === user._id) {
+          // only deletes round if the owner matches the user id
+          roundDelete(round, user)
+          // api call to DELETE with parameters 'round' and 'user'
+            .then(getAllRounds)
+            // api call to GET
+            .then(() => flash(messages.deleteSuccess, 'flash-success'))
+            .catch(() => flash(messages.deleteFailure, 'flash-error'))
+        } else {
+          flash(messages.userFailure, 'flash-error')
+        }
+      }
 
 
-    return (
-      <div className="each-round" key={ round._id }>
-        <h3><b>Phrase</b>: { round.phrase}</h3>
-        <h5><b>Drawing</b>:</h5>
-        { round.drawing && <CanvasDraw
-          catenaryColor="#fff"
-          brushRadius= { 0 }
-          canvasHeight={ 400 }
-          canvasWidth={ 375 }
-          disabled={ true }
-          hideGrid={ true }
-          lazyRadius={ 0 }
-          saveData={ round.drawing || '' }
-          immediateLoading={ true }
-        /> }
-        <div className="button-row">
-          <Link to="/round-update" className="update-button btn btn-warning">
-            Update
-          </Link>
-          <button onClick={ deleteRound } type="submit" className="delete-button btn btn-danger">
-          Delete
-          </button>
+      return (
+        <div className="each-round" key={ round._id }>
+          <h3><b>Phrase</b>: { round.phrase}</h3>
+          <h5><b>Drawing</b>:</h5>
+          <CanvasDraw
+            catenaryColor="#fff"
+            brushRadius= { 0 }
+            canvasHeight={ 400 }
+            canvasWidth={ 375 }
+            disabled={ true }
+            hideGrid={ true }
+            lazyRadius={ 0 }
+            saveData={ round.drawing }
+            immediateLoading={ true }
+          />
+          <div className="button-row">
+            <Link to="/round-update" className="update-button btn btn-warning">
+              Update
+            </Link>
+            <button onClick={ deleteRound } type="submit" className="delete-button btn btn-danger">
+            Delete
+            </button>
+          </div>
         </div>
+      )
+    })
+    this.setState({ Rounds })
+    // sets the state Rounds to be used in the render
+  }
+
+  render () {
+    const { Rounds } = this.state
+    return (
+      <div>
+        { Rounds }
       </div>
     )
-  })
-  
-  return (
-    <div>
-      { Rounds && Rounds }
-    </div>
-  )
+  }
 }
-
 
 export default RoundIndex
