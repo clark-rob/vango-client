@@ -14,7 +14,8 @@ class RoundUpdate extends Component {
       number: 0,
       phrase: '',
       drawing: '',
-      _id: ''
+      _id: '',
+      owner: ''
     }
   }
 
@@ -35,14 +36,17 @@ class RoundUpdate extends Component {
       number: round.number || '',
       phrase: round.phrase || '',
       drawing: round.drawing || '',
-      _id: round._id
+      _id: round._id,
+      owner: round.owner
     })
   }
 
   onPhraseUpdate = event => {
     // once selected, if the name is matched to an id and the value of the id is sent to changeRoundData
     const { name, value } = event.target
+    // if event.target selects an id
     if (name === 'id') {
+      // change the
       this.changeRoundData(value)
     } else { // else the name and value are set as the state
       this.setState({ [name]: value })
@@ -52,19 +56,17 @@ class RoundUpdate extends Component {
   updateRound = event => {
     // function, begins with page reload prevention
     event.preventDefault()
-    const { number, phrase, drawing } = this.state
+    const { number, phrase, drawing, owner } = this.state
     const { flash, user, rounds } = this.props
     // the canvas drawing is set to a variable of 'saved'
     const saved = this.saveableCanvas.getSaveData()
-    // 'round' variable contains individual 'round' owner
-    const round = this.props.rounds.find(round => round.owner)
     // function to plus one to the this.state.number on each click
     this.setState({ number: number + 1, drawing: saved },
       () => {
         // this.state is set to a variable of data
         const data = { ...this.state }
-        // allow update only if the round owner matches the current user id
-        if (round.owner === user._id) {
+        // allow update only if the curent state.owner matches the current user id
+        if (owner === user._id) {
           // api call to PATCH
           roundPatch(data, user)
             .then(() => flash(messages.updateSuccess, 'flash-success'))
