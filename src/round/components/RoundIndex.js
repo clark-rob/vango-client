@@ -11,12 +11,13 @@ class RoundIndex extends Component {
 
     this.state = {
     }
-    Rounds: []
+    Rounds: ''
   }
 
   componentDidMount() {
     const { rounds, user, getAllRounds, flash } = this.props
     const Rounds = rounds.map((round, index) => {
+      console.log(round, index)
       // function 'Rounds' takes in the 'props.rounds' and loops through each available 'round'
       // ---------------Delete function ---------------------
       const deleteRound = () => {
@@ -37,18 +38,23 @@ class RoundIndex extends Component {
       return (
         <div className="each-round" key={ round._id }>
           <h3><b>Phrase</b>: { round.phrase}</h3>
-          <h5><b>Drawing</b>:</h5>
-          <CanvasDraw
-            catenaryColor="#fff"
-            brushRadius= { 0 }
-            canvasHeight={ 400 }
-            canvasWidth={ 375 }
-            disabled={ true }
-            hideGrid={ true }
-            lazyRadius={ 0 }
-            saveData={ round.drawing }
-            immediateLoading={ true }
-          />
+          <div className="canvas">
+            <h5><b>Drawing</b>:</h5>
+            <CanvasDraw
+              catenaryColor="#fff"
+              brushRadius= { 0 }
+              canvasHeight={ 400 }
+              canvasWidth={ 375 }
+              disabled={ true }
+              hideGrid={ true }
+              lazyRadius={ 0 }
+              imgSrc={ round.drawing }
+              saveData={ round.drawing }
+              loadTimeOffset={ 0 }
+              immediateLoading={ true }
+              ref={canvasDraw => (this.loadableCanvas = canvasDraw)}
+            />
+          </div>
           <div className="button-row">
             <Link to="/round-update" className="update-button btn btn-warning">
               Update
@@ -60,14 +66,17 @@ class RoundIndex extends Component {
         </div>
       )
     })
+    console.log(Rounds)
+
     this.setState({ Rounds })
     // sets the state Rounds to be used in the render
   }
 
   render () {
+    console.log(this.state.Rounds)
     const { Rounds } = this.state
     return (
-      <div>
+      <div className="shown-rounds">
         { Rounds }
       </div>
     )

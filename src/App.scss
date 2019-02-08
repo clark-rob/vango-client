@@ -33,6 +33,11 @@ html {
 
 .btn {
   font-family: 'Finger Paint', cursive;
+  margin: 10px;
+}
+
+.button-row {
+  text-align: center;
 }
 
 .container {
@@ -40,13 +45,13 @@ html {
 }
 
 .each-round {
-  background-color: #ccccc8;
+  background-color: $title-color;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  height: 600px;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px 0;
+  margin: 10px;
+  padding-top: 10px;
   width: 375px;
 
   h3,
@@ -54,9 +59,12 @@ html {
     padding-left: 10px;
   }
 
-  .update-button,
-  .delete-button {
-    margin: 10px;
+  .button-row {
+    align-self: flex-end;
+  }
+
+  .canvas {
+    align-self: center;
   }
 }
 
@@ -117,4 +125,9 @@ html {
     margin: 10px;
     width: 350px;
   }
+}
+
+.shown-rounds {
+  display: flex;
+  flex-wrap: wrap;
 }
