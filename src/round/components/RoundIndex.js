@@ -37,7 +37,7 @@ class RoundIndex extends Component {
 
       return (
         <div className="each-round" key={ round._id }>
-          <h3><b>Phrase</b>: { round.phrase}</h3>
+          <h3>{ round.phrase}</h3>
           <div className="canvas">
             <h5><b>Drawing</b>:</h5>
             <CanvasDraw

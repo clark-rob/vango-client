@@ -40,16 +40,14 @@ html {
   text-align: center;
 }
 
-.container {
+.view-window {
   background-color: #f0e32b;
 }
 
 .each-round {
   background-color: $title-color;
   display: flex;
-  flex-wrap: wrap;
-  height: 600px;
-  justify-content: center;
+  flex-direction: column;
   margin: 10px;
   padding-top: 10px;
   width: 375px;
@@ -110,8 +108,9 @@ html {
 }
 
 .round-create {
-  display: block;
-  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   padding-top: 30px;
@@ -127,7 +126,27 @@ html {
   }
 }
 
+.round-update {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  width: 375px;
+
+  input {
+    margin: 10px;
+    width: 350px;
+  }
+
+  select {
+    width: 350px;
+  }
+}
+
 .shown-rounds {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
