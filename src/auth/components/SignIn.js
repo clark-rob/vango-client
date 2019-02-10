@@ -10,8 +10,8 @@ class SignIn extends Component {
     super()
 
     this.state = {
-      email: '',
-      password: '',
+      email: 'r@c.com', // set email for sign in
+      password: 'r', // set password for sign in
     }
   }
 
@@ -58,7 +58,7 @@ class SignIn extends Component {
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="btn btn-success">Sign In</button>
       </form>
     )
   }

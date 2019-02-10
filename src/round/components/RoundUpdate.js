@@ -82,7 +82,7 @@ class RoundUpdate extends Component {
   render () {
     const { number, phrase, drawing } = this.state
     const SelectOptions = this.props.rounds.map((round, index) => {
-      return (<option key={ index } value={ round._id }>{ round.phrase } (ID: { round._id })</option>)
+      return (<option key={ index } value={ round._id }>{ round.phrase }</option>)
     } ,
     )
     return (
@@ -93,14 +93,16 @@ class RoundUpdate extends Component {
           { SelectOptions }
         </select>
 
-        <input
-          required
-          type="string"
-          name="phrase"
-          value={phrase}
-          placeholder='Your Word'
-          onChange={this.onPhraseUpdate}
-        />
+        <div className="phrase-input">
+          <input
+            required
+            type="string"
+            name="phrase"
+            value={phrase}
+            placeholder='Your Word'
+            onChange={this.onPhraseUpdate}
+          />
+        </div>
 
         <CanvasDraw
           required
@@ -115,7 +117,7 @@ class RoundUpdate extends Component {
           onChange={ this.onPhraseUpdate }
         />
 
-        <button type="submit">Update</button>
+        <button type="submit" className="update-btn btn btn-warning">Update</button>
       </form>
     )
   }

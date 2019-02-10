@@ -1,5 +1,5 @@
 ## Welcome to V.A.N.Go!
-- The Drawing App for All Ages
+The Drawing App for All Ages
 
 # Snapshot of App
 ![alt screenshot](./public/vango-screenshot.png)
@@ -12,15 +12,16 @@
 
 ## Preparation
 1. Fork and Clone this repository.
-2. `git checkout` to a new branch
-3. Install dependencies with `npm install`
-4. Install React CanvasDraw with `npm install react-canvas-draw --save`
-5. Run `npm run server` in terminal to test server
+1. `git checkout` to a new branch
+1. Install dependencies with `npm install`
+1. Install React CanvasDraw with `npm install react-canvas-draw --save`
+1. Run `npm start` in terminal to test front-end server
+1. To test along with the back-end server, fork and clone the repository in the following link: <https://github.com/clark-rob/vango-server>
 
 ## Repo URL's
 - Front-end: <https://github.com/clark-rob/vango-client>
 - Back-end: <https://github.com/clark-rob/vango-server>
--
+
 ## Deployed Site URL's
 - Front-end: <https://clark-rob.github.io/vango-client/>
 - Back-end: <https://vango-server.herokuapp.com/>
@@ -28,7 +29,7 @@
 ## Technologies
 - React JS was used to create the entire front end, Single Page App.
 - React-canvas-draw: <https://github.com/embiem/react-canvas-draw>
--     - used to create each canvas drawing within the application
+- used to create each canvas drawing within the application
 
 ```javascript
 
@@ -45,7 +46,6 @@ a group of individuals creations.
 
 ## Future Fixes
 - stop the error about 'drawImage'
-- CSS
 - Proceed with creating the game version
 - create images instead of an array of points, upload to Amazon Web Services
 
@@ -67,7 +67,7 @@ make small drawings with out errors
 - As a developer, I want each onscreen action to perform correctly and smoothly
 - As a developer, I want to be able to understand and read each piece of code
 to avoid prolonged debugging
-- As a developer, I want an application that can easily be reused and inserted within other applications 
+- As a developer, I want an application that can easily be reused and inserted within other applications
 
 
 
@@ -78,11 +78,11 @@ to avoid prolonged debugging
   The drawing canvas was made by <https://github.com/embiem/react-canvas-draw>
   Check out the great package for yourself.
 
-  This app was built using the assistance of Google search engine.
-  It helped me find sites such as:
+  This app was built using the assistance of the following:
   <https://developer.mozilla.org/en-US/>
     <https://www.w3schools.com/>
     <https://stackoverflow.com/>
+    <https://css-tricks.com/>
 
   Majority of all my questions, led me to past training notes and
   practices.

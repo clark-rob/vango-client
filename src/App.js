@@ -68,7 +68,7 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
-        <main className="container">
+        <main className="view-window">
           <Route exact path='/' render={() => (
             <div className="home-screen">
               <h1>Welcome to <span className="vango-title">V.A.N.Go!</span></h1>

@@ -11,7 +11,7 @@ class RoundIndex extends Component {
 
     this.state = {
     }
-    Rounds: []
+    Rounds: ''
   }
 
   componentDidMount() {
@@ -36,19 +36,24 @@ class RoundIndex extends Component {
 
       return (
         <div className="each-round" key={ round._id }>
-          <h3><b>Phrase</b>: { round.phrase}</h3>
-          <h5><b>Drawing</b>:</h5>
-          <CanvasDraw
-            catenaryColor="#fff"
-            brushRadius= { 0 }
-            canvasHeight={ 400 }
-            canvasWidth={ 375 }
-            disabled={ true }
-            hideGrid={ true }
-            lazyRadius={ 0 }
-            saveData={ round.drawing }
-            immediateLoading={ true }
-          />
+          <h3>{ round.phrase}</h3>
+          <div className="canvas">
+            <h5><b>Drawing</b>:</h5>
+            <CanvasDraw
+              catenaryColor="#fff"
+              brushRadius= { 0 }
+              canvasHeight={ 400 }
+              canvasWidth={ 375 }
+              disabled={ true }
+              hideGrid={ true }
+              lazyRadius={ 0 }
+              imgSrc={ round.drawing }
+              saveData={ round.drawing }
+              loadTimeOffset={ 0 }
+              immediateLoading={ true }
+              ref={canvasDraw => (this.loadableCanvas = canvasDraw)}
+            />
+          </div>
           <div className="button-row">
             <Link to="/round-update" className="update-button btn btn-warning">
               Update
@@ -60,6 +65,7 @@ class RoundIndex extends Component {
         </div>
       )
     })
+
     this.setState({ Rounds })
     // sets the state Rounds to be used in the render
   }
@@ -67,7 +73,7 @@ class RoundIndex extends Component {
   render () {
     const { Rounds } = this.state
     return (
-      <div>
+      <div className="shown-rounds">
         { Rounds }
       </div>
     )
