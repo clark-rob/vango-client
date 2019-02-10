@@ -17,7 +17,6 @@ class RoundIndex extends Component {
   componentDidMount() {
     const { rounds, user, getAllRounds, flash } = this.props
     const Rounds = rounds.map((round, index) => {
-      console.log(round, index)
       // function 'Rounds' takes in the 'props.rounds' and loops through each available 'round'
       // ---------------Delete function ---------------------
       const deleteRound = () => {
@@ -66,14 +65,12 @@ class RoundIndex extends Component {
         </div>
       )
     })
-    console.log(Rounds)
 
     this.setState({ Rounds })
     // sets the state Rounds to be used in the render
   }
 
   render () {
-    console.log(this.state.Rounds)
     const { Rounds } = this.state
     return (
       <div className="shown-rounds">
