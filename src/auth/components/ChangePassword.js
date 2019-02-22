@@ -32,6 +32,8 @@ class ChangePassword extends Component {
       .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
   }
 
+  // disabled all inputs for change password
+
   render () {
     const { oldPassword, newPassword } = this.state
 
@@ -47,6 +49,7 @@ class ChangePassword extends Component {
           type="password"
           placeholder="Old Password"
           onChange={this.handleChange}
+          disabled
         />
         <label htmlFor="newPassword">New Password</label>
         <input
@@ -56,6 +59,7 @@ class ChangePassword extends Component {
           type="password"
           placeholder="New Password"
           onChange={this.handleChange}
+          disabled
         />
         <button type="submit" className="btn btn-success">Change Password</button>
       </form>

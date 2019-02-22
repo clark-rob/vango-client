@@ -39,6 +39,8 @@ class SignUp extends Component {
       .then(() => history.push('/'))
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
   }
+  
+  // disabled all inputs for sign up
 
   render () {
     const { email, password, passwordConfirmation} = this.state
@@ -55,6 +57,7 @@ class SignUp extends Component {
           type="email"
           placeholder="Email"
           onChange={this.handleChange}
+          disabled
         />
         <label htmlFor="password">Password</label>
         <input
@@ -64,6 +67,7 @@ class SignUp extends Component {
           type="password"
           placeholder="Password"
           onChange={this.handleChange}
+          disabled
         />
         <label htmlFor="passwordConfirmation">Confirm Password</label>
         <input
@@ -73,6 +77,7 @@ class SignUp extends Component {
           type="password"
           placeholder="Confirm Password"
           onChange={this.handleChange}
+          disabled
         />
         <button type="submit"className="btn btn-success">Sign Up</button>
       </form>
